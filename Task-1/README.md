@@ -55,6 +55,14 @@ We can reassign variables:
 number_1 = 5
 number_1 * number_2
 ```
+```python
+number_1 = 2
+number_2 = 5
+number_3 = number_1 + number_2
+print(number_3)
+number_3 = 2
+print(number_3)
+```
 
 ```python
 word_1 = 'Hello'
