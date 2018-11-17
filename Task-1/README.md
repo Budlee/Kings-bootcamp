@@ -168,6 +168,7 @@ collection_of_numbers = [1,2,3,4,5,6,7,8,9]
 for number in collection_of_numbers:
     print (number)
 ```
+The line of code ```for number in collection_of_numbers:``` is saying we want to look at each of the values in collection_of_numbers and we will call that value number and that is how we will interact with it
 
 It is possible to nest conditions in the for loop
 ```python

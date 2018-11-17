@@ -36,8 +36,10 @@ if check_file_exists == False:
     print ('Can not find file data.csv')
 else:
     print ('Found file data.csv')
-
 ```
+
+![Image 1](images/image1.png)
+
 If you can't find the file check the data.csv is in the correct location
 
 Lets look at the two new lines of code. This is an overview, and it is not required to understand to continue with this exercise and links are included for offline followup :
@@ -46,13 +48,15 @@ Lets look at the two new lines of code. This is an overview, and it is not requi
 
 ### Read the file in
 
-Now that we know that the file exists we can open it up and read the file
+Now that we know that the file exists we can open it up and read the file. There are two files so for testing lets use the data-small.csv file
 
 ```python
-with open('data.csv') as data_csv_file:
+with open('data-small.csv') as data_csv_file:
     for line in data_csv_file:
         print (line)
 ```
+
+![Image 2](images/image2.png)
 
 What do you expect to happen? Run the code and find out
 
@@ -70,11 +74,89 @@ So now the we are able to get access to the lines of the file
 ## Accessing each element of the CSV file
 What would be really convenient is to be able to split each line up and be able to access just the parts that we care about
 
-There is a module called csv which handles for us csv files to make them easy to operate with. Lets extent the example above
+There is a module called csv which handles for us csv files to make them easy to operate with. Lets extend the example above
+```python
+import csv
+with open('data-small.csv') as data_csv_file:
+    csv_reader = csv.reader(data_csv_file)
+    for csv_line in csv_reader:
+        transaction_date = csv_line[0] 
+        transaction_type = csv_line[1]
+        description = csv_line[2]
+        paid_out = csv_line[3]
+        paid_in = csv_line[4]
+        balance = csv_line[5]
+        print (transaction_date + " " +  description + " [" + paid_out + "]")
+```
+What do you notice now. In computing we use a zero index which means that instead of starting from one we count from zero
+
+## Adding together all expenses at a Location
+```python
+import csv
+with open('data-small.csv') as data_csv_file:
+    csv_reader = csv.reader(data_csv_file)
+    for csv_line in csv_reader:
+        description = csv_line[2] 
+        if description == 'BLOOMSBURY BOWLING':
+            print ("We have found a transaction at BLOOMSBURY BOWLING")
+```
+
+What if we change this to McDonalds and use all the data!
 ```python
 import csv
 with open('data.csv') as data_csv_file:
     csv_reader = csv.reader(data_csv_file)
-    for line in data_csv_file:
-        print (line)
+    for csv_line in csv_reader:
+        description = csv_line[2] 
+        if description == 'MCDONALDS':
+            print ("We have found a transaction at MCDONALDS")
 ```
+We should see "We have found a transaction at McDonalds" appear four times
+
+![Image 3](images/image3.png)
+
+## Skip the first line
+We when we read the file and print out all the lines the first line is the headings of the csv file.
+
+```Date,Transaction type,Description,Paid out,Paid in,Balance```
+
+This does not interest us as we want to start accessing the values so we want to skip the headings line. We could remove it from the file manually, however, lets add this to our program. We can add a check to see what line number we are looking at. Look when we add this to the sample we are working on and what it prints out
+```python
+import csv
+line_number = 1
+with open('data-small.csv') as data_csv_file:
+    csv_reader = csv.reader(data_csv_file)
+    for csv_line in csv_reader:
+        if line_number != 1:
+            description = csv_line[2] 
+            print ('Description for file is ' + description)
+        line_number = line_number + 1
+```
+We now do not see the headings value Description being printed out
+
+## Converting the csv to a different type
+When we look at each element of csv python assumes that it is text. We know that it is actually a float, it is a number with decimals, so we need to convert it to that type. We can do the by wrapping the variable in a function ```float()```. Lets put this all together and add 0.99 to each paid out value
+```python
+import csv
+line_number = 1
+total = 0.0
+with open('data-small.csv') as data_csv_file:
+    csv_reader = csv.reader(data_csv_file)
+    for csv_line in csv_reader:
+        if line_number != 1:
+            description = csv_line[2]
+            paid_out = csv_line[3]
+            new_paid_out_value = 0.99 + float(paid_out)
+            print ('Description is ' + description + ' and the new paid out value is ' + str(new_paid_out_value))
+        line_number = line_number + 1
+```
+
+![Image 4](images/image4.png)
+
+## Task
+With this information can you use what you have learnt to make the code do the following:
+   1. Print out how many transactions have been made at EVANS CYCLES. HINT to convert print an integer as string wrap the integer in the function str() e.g. ```print("My favourite number is " + str(42))```
+   2. What is the total spent at AMAZON in this statement?
+   3. What is the total spent on the '26 Jan 2018'?
+   4. What is the total paid in over the last two months?
+
