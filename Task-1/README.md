@@ -2,9 +2,9 @@
 
 ## Types
 The core types in python that we care about for this bootcamp is:
-   * bool - A value that is True or False
-   * int - A whole number e.g. 1, 2, -5, 1000
-   * float - A number with a decimal e.g. 1.99, 0.001, -5.23
+   * bool - A value that is `True` or `False`
+   * int - A whole number e.g. `1, 2, -5, 1000`
+   * float - A number with a decimal e.g. `1.99, 0.001, -5.23`
    * str - A 'String' is a text sequence e.g. 'Hello', 'Kings college'
 
 ### **Task** try some basic arithmetic
@@ -29,7 +29,7 @@ What do you think will happen if you run the following code?
 ```
 ![Image 2](images/image2.png)
 
-It is possible to combine string values together using the addition
+It is possible to combine string values together using the addition operator
 
 What if you do the following:
 ```python
@@ -40,7 +40,7 @@ It is not possible to combine all types together!
 
 ## [Variables](https://www.tutorialspoint.com/python/python_variable_types.htm)
 
-Variables are a symbol that represents a value. We can assign items to values to variables:
+Variables are a symbol, or name, that represents a value. We can assign items to values to variables:
 
 ```python
 number_1 = 2
@@ -137,7 +137,7 @@ else:
     print ('The variable is NOT 2')
 ```
 
-Notice that there is an **else** here! This can be used to provide an alternative operation when the **if** condition is not met
+Notice that there is an **else** here! This can be used to provide an alternative operation when the **if** condition is not met.
 An **if** statement is defined as the following:
 ```
 if (A condition is met):
@@ -146,7 +146,7 @@ else:
     execute all the code in this indentation
 ```
 
-We can nest if statements as well. What if we want to check to see if a number is less than 10 and greater then 5
+We can nest if statements as well. What if we want to check to see if a number is less than 10 and greater then 5?
 ```python
 a = 7
 if a < 10:
@@ -161,14 +161,14 @@ else:
 ![Image 7](images/image7.png)
 
 ## [for loops](https://www.tutorialspoint.com/python/python_loops.htm)
-A for loop is way to look at each value in collection of values
-Let us say that we have a collection of values [1,2,3,4,5,6,7,8,9] and we assign this to a variable
+A for loop is way to look at each value in collection of values.
+Let us say that we have a collection of values `[1,2,3,4,5,6,7,8,9]` and we assign this to a variable
 ```python
 collection_of_numbers = [1,2,3,4,5,6,7,8,9]
 for number in collection_of_numbers:
     print (number)
 ```
-The line of code ```for number in collection_of_numbers:``` is saying we want to look at each of the values in collection_of_numbers and we will call that value number and that is how we will interact with it
+The line of code ```for number in collection_of_numbers:``` is saying we want to look at each of the values in `collection_of_numbers` and we will call that value number and that is how we will interact with it.
 
 It is possible to nest conditions in the for loop
 ```python
