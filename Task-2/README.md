@@ -20,11 +20,11 @@ Date,       Description,        Money In,   Money Out,  Balance
 03/01/2018, McDonalds,         15,         ,           135
 ```
 
-Our goal is to read in this data.csv file and add up how much money we have spent at McDonalds
+Our goal is to read in this data.csv file and add up how much money we have spent at McDonalds.
 
 ## [Read in a file](https://www.tutorialspoint.com/python/python_files_io.htm)
-Copy the data.csv file to the same folder where the jupyter notebook it running. 
-Or open up a new jupyter notebook in the Task-2 folder where the data.csv file is
+Copy the data.csv file to the same folder where the jupyter notebook is running. 
+Or open up a new jupyter notebook in the Task-2 folder where the data.csv file is.
 
 ### Check file exists
 Before we continue lets make sure that the file is available
@@ -40,7 +40,7 @@ else:
 
 ![Image 1](images/image1.png)
 
-If you can't find the file check the data.csv is in the correct location
+If you can't find the file check the data.csv is in the correct location.
 
 Lets look at the two new lines of code. This is an overview, and it is not required to understand to continue with this exercise and links are included for offline followup :
    * ```import os``` This is importing a [Module](https://www.tutorialspoint.com/python/python_modules.htm). A module is like a toolbox and we are saying we want to use this toolbox
@@ -48,7 +48,7 @@ Lets look at the two new lines of code. This is an overview, and it is not requi
 
 ### Read the file in
 
-Now that we know that the file exists we can open it up and read the file. There are two files so for testing lets use the data-small.csv file
+Now that we know that the file exists we can open it up and read the file. There are two files so for testing lets use the `data-small.csv` file
 
 ```python
 with open('data-small.csv') as data_csv_file:
